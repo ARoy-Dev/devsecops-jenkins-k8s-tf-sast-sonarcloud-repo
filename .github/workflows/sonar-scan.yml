@@ -16,7 +16,7 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Build with Maven
-      run: mvn clean install -f devsecops-jenkins-k8s-tf-sast-sonarcloud-repo/pom.xml
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sonarscannertest_sonarscannertest
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       with:
